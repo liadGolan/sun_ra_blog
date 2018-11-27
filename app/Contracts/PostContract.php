@@ -7,4 +7,6 @@ namespace App\Contracts;
 interface PostContract
 {
     public function getAllPosts(): array;
+
+    public function getPostWithComments($id): array;
 }

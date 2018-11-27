@@ -16,5 +16,6 @@ Route::get('/', function () {
 });
 
 Route::get('/posts', 'PostsController@getAllPosts');
+Route::get('/post/{id}', 'PostsController@getPostWithComments');
 
 Route::get('/home', 'HomeController@index')->name('home');

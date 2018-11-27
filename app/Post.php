@@ -10,4 +10,8 @@ class Post extends Model
         'user_id', 'title', 'body',
     ];
 
+    public function comments() {
+        return $this->hasMany('App\Comment', 'post_id', 'id');
+    }
+
 }

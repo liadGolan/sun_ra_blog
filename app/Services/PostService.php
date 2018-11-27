@@ -11,4 +11,12 @@ class PostService implements PostContract
     {
         return Post::all()->toArray();
     }
+
+    public function getPostWithComments($id): array
+    {
+        return Post::whereIn('id', [$id])
+            ->with('comments')
+            ->first()
+            ->toArray();
+    }
 }
