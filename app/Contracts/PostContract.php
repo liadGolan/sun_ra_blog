@@ -9,4 +9,6 @@ interface PostContract
     public function getAllPosts(): array;
 
     public function getPostWithComments($id): array;
+
+    public function createPost(array $data);
 }

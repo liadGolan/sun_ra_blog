@@ -23,4 +23,15 @@ class PostsController extends Controller
     {
         return $this->postUtility->getPostWithComments($id);
     }
+
+    public function createPost(Request $request)
+    {
+        $data = [
+            'user_id' => $request->user_id,
+            'title' => $request->title,
+            'body' => $request->body
+        ];
+
+        $this->postUtility->createPost($data);
+    }
 }
