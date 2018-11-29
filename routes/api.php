@@ -37,3 +37,5 @@ Route::post('/createPost', 'PostsController@createPost');
 Route::get('/post/{id}', 'PostsController@getPostWithComments');
 
 Route::post('/createComment', 'CommentsController@createComment');
+
+Route::post('/createReply', 'RepliesController@createReply');

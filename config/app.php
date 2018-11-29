@@ -179,6 +179,7 @@ return [
 
          App\Providers\PostServiceProvider::class,
          App\Providers\CommentServiceProvider::class,
+         App\Providers\ReplyServiceProvider::class,
 
     ],
 
