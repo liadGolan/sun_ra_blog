@@ -14,7 +14,11 @@ export default {
 
     components: {
         postsContainer,
-    }
+    },
+
+    beforeCreate() {
+        this.$store.dispatch('getPosts');
+    },
 }
 </script>
 

@@ -15053,6 +15053,10 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
     components: {
         postsContainer: __WEBPACK_IMPORTED_MODULE_0__componenets_postsContainer_vue___default.a
+    },
+
+    beforeCreate: function beforeCreate() {
+        this.$store.dispatch('getPosts');
     }
 });
 
@@ -34154,7 +34158,8 @@ module.exports = function spread(callback) {
 
 "use strict";
 /* harmony default export */ __webpack_exports__["a"] = ({
-    posts: []
+    posts: [],
+    currentPost: []
 });
 
 /***/ }),
@@ -34167,6 +34172,14 @@ module.exports = function spread(callback) {
         window.axios.get('api/posts').then(function (response) {
             context.commit('GET_POSTS', response);
         }).catch(function (error) {});
+    },
+    getCurrentPost: function getCurrentPost(context, payload) {
+        window.axios.get('api/post/' + payload.id).then(function (response) {
+            context.commit('GET_CURRENT_POST', response);
+        }).catch(function (error) {});
+    },
+    clearCurrentPost: function clearCurrentPost(context, payload) {
+        context.commit('CLEAR_CURRENT_POST');
     }
 });
 
@@ -34178,6 +34191,9 @@ module.exports = function spread(callback) {
 /* harmony default export */ __webpack_exports__["a"] = ({
     posts: function posts(state) {
         return state.posts;
+    },
+    currentPost: function currentPost(state) {
+        return state.currentPost;
     }
 });
 
@@ -34189,6 +34205,12 @@ module.exports = function spread(callback) {
 /* harmony default export */ __webpack_exports__["a"] = ({
     GET_POSTS: function GET_POSTS(state, payload) {
         state.posts = payload.data;
+    },
+    GET_CURRENT_POST: function GET_CURRENT_POST(state, payload) {
+        state.currentPost = payload.data;
+    },
+    CLEAR_CURRENT_POST: function CLEAR_CURRENT_POST(state, payload) {
+        state.currentPost = [];
     }
 });
 
@@ -34482,6 +34504,11 @@ module.exports = Component.exports
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__componenets_postPage_vue__ = __webpack_require__(63);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__componenets_postPage_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__componenets_postPage_vue__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_vuex__ = __webpack_require__(21);
+var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
+
 //
 //
 //
@@ -34490,10 +34517,21 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+
+
 
 /* harmony default export */ __webpack_exports__["default"] = ({
-    name: 'post'
+    name: 'post',
+    components: {
+        postPage: __WEBPACK_IMPORTED_MODULE_0__componenets_postPage_vue___default.a
+    },
 
+    created: function created() {
+        this.$store.dispatch('getCurrentPost', this.$route.params.id);
+    },
+
+
+    computed: _extends({}, Object(__WEBPACK_IMPORTED_MODULE_1_vuex__["b" /* mapGetters */])(['currentPost']))
 });
 
 /***/ }),
@@ -34504,22 +34542,119 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _vm._m(0)
+  return _c("div", [
+    _vm.currentPost != []
+      ? _c("div", [_c("post-page", { attrs: { post: _vm.currentPost } })], 1)
+      : _vm._e()
+  ])
 }
-var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", [_c("h1", [_vm._v("\n        Post\n    ")])])
-  }
-]
+var staticRenderFns = []
 render._withStripped = true
 module.exports = { render: render, staticRenderFns: staticRenderFns }
 if (false) {
   module.hot.accept()
   if (module.hot.data) {
     require("vue-hot-reload-api")      .rerender("data-v-1458c41f", module.exports)
+  }
+}
+
+/***/ }),
+/* 63 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var disposed = false
+var normalizeComponent = __webpack_require__(17)
+/* script */
+var __vue_script__ = __webpack_require__(64)
+/* template */
+var __vue_template__ = __webpack_require__(65)
+/* template functional */
+var __vue_template_functional__ = false
+/* styles */
+var __vue_styles__ = null
+/* scopeId */
+var __vue_scopeId__ = null
+/* moduleIdentifier (server only) */
+var __vue_module_identifier__ = null
+var Component = normalizeComponent(
+  __vue_script__,
+  __vue_template__,
+  __vue_template_functional__,
+  __vue_styles__,
+  __vue_scopeId__,
+  __vue_module_identifier__
+)
+Component.options.__file = "resources/js/componenets/postPage.vue"
+
+/* hot reload */
+if (false) {(function () {
+  var hotAPI = require("vue-hot-reload-api")
+  hotAPI.install(require("vue"), false)
+  if (!hotAPI.compatible) return
+  module.hot.accept()
+  if (!module.hot.data) {
+    hotAPI.createRecord("data-v-0d4cf7a2", Component.options)
+  } else {
+    hotAPI.reload("data-v-0d4cf7a2", Component.options)
+  }
+  module.hot.dispose(function (data) {
+    disposed = true
+  })
+})()}
+
+module.exports = Component.exports
+
+
+/***/ }),
+/* 64 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+    name: 'post-page',
+    props: ['currentPost']
+});
+
+/***/ }),
+/* 65 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c("div", [
+    _c("div", [
+      _c("h1", [
+        _vm._v("\n            " + _vm._s(this.currentPost.title) + "\n        ")
+      ])
+    ]),
+    _vm._v(" "),
+    _c("div")
+  ])
+}
+var staticRenderFns = []
+render._withStripped = true
+module.exports = { render: render, staticRenderFns: staticRenderFns }
+if (false) {
+  module.hot.accept()
+  if (module.hot.data) {
+    require("vue-hot-reload-api")      .rerender("data-v-0d4cf7a2", module.exports)
   }
 }
 

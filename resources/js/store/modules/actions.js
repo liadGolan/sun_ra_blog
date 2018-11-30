@@ -8,4 +8,18 @@ export default {
                 
             });
     },
+
+    getCurrentPost(context, payload) {
+        window.axios.get('api/post/' + payload.id)
+            .then((response) => {
+                context.commit('GET_CURRENT_POST', response);
+            })
+            .catch((error) => {
+
+            });
+    },
+
+    clearCurrentPost(context,payload) {
+        context.commit('CLEAR_CURRENT_POST');
+    }
 };
