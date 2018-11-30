@@ -1,11 +1,13 @@
 <template>
     <div>
-        <h3>
-            {{post.title}}
-        </h3>
-        <h4>
-            {{post.body}}
-        </h4>
+        <router-link :to="'/post/' + post.id">
+            <h3>
+                {{post.title}}
+            </h3>
+            <h4>
+                {{post.body}}
+            </h4>
+        </router-link>
     </div>
 </template>
 
