@@ -1,7 +1,7 @@
 <template>
     <div>
         <div v-if="currentPost != []">
-            <post-page :post="currentPost"></post-page>
+            <post-page></post-page>
         </div>
     </div>
 </template>
@@ -15,7 +15,7 @@ export default {
         postPage
     },
 
-    created() {
+    beforeMount() {
         this.$store.dispatch('getCurrentPost', this.$route.params.id);
     },
 

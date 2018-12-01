@@ -10,7 +10,7 @@ export default {
     },
 
     getCurrentPost(context, payload) {
-        window.axios.get('api/post/' + payload.id)
+        window.axios.get('api/post/' + payload)
             .then((response) => {
                 context.commit('GET_CURRENT_POST', response);
             })
