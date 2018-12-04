@@ -1,13 +1,15 @@
 <template>
     <div>
-        <router-link :to="'/post/' + post.id">
+        <li>
+            <router-link :to="'/post/' + post.id">
             <h3>
                 {{post.title}}
             </h3>
             <h4>
                 {{post.body}}
             </h4>
-        </router-link>
+            </router-link>
+        </li>
     </div>
 </template>
 

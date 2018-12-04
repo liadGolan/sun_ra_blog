@@ -3,9 +3,11 @@
         <h2>
             Posts
         </h2>
-        <div v-if="this.posts != null && this.posts.length > 0">
-            <post-item v-for="post in this.posts" :key="post.title" :post="post"></post-item>
-        </div>
+        <ul>
+            <div v-if="this.posts != null && this.posts.length > 0">
+                    <post-item v-for="post in this.posts" :key="post.title" :post="post"></post-item>
+            </div>
+        </ul>
     </div>
 </template>
 
