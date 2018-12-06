@@ -1,13 +1,11 @@
 <template>
     <div>
         <div v-if="!isLoggedIn">
-            Please Log In to make a post
+            Please Log In to make a comment
         </div>
         <h4>
-            Create New Post
+            Create New comment
         </h4>
-        <input type="text" placeholder="title" v-model="title">
-        <br>
         <input type="text" placeholder="body" v-model="body">
         <br>
         <button @click="submit" type="button">Submit</button>
@@ -19,11 +17,10 @@ import {mapGetters} from 'vuex';
 import {mapActions} from 'vuex';
 
 export default {
-    name: 'post-creation',
+    name: 'comment-creation',
 
     data: function() {
         return {
-            title:'',
             body:'',
         }
     },
@@ -36,16 +33,15 @@ export default {
 
     methods: {
         ...mapActions([
-            'createPost'
+            'createComment'
         ]),
 
         submit: function(event) {
             let data = {
-                title: this.title,
                 body: this.body
             };
 
-            this.createPost(data);
+            this.createComment(data);
         },
     },
 }

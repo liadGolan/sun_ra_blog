@@ -52,4 +52,34 @@ export default {
 
             });
     },
+
+    createPost(context, payload) {
+        window.axios.post('api/createPost', payload)
+            .then((response) => {
+
+            })
+            .catch((error) => {
+
+            })
+    },
+
+    createComment(context, payload) {
+        window.axios.post('api/createComment', payload)
+            .then((response) => {
+
+            })
+            .catch((error) => {
+                
+            })
+    },
+
+    createReply(context, payload) {
+        window.axios.post('api/createReply', payload)
+            .then((response) => {
+
+            })
+            .catch((error) => {
+                
+            })
+    }
 };

@@ -12,6 +12,7 @@
             <h3>
                 Comments
             </h3>
+            <comment-creation></comment-creation>
         </div>
         <ul>
             <div v-if="this.currentPost.comments != null && this.currentPost.comments.length > 0">
@@ -24,11 +25,13 @@
 <script>
 import { mapGetters } from 'vuex';
 import comment from './comment.vue';
+import commentCreation from './commentCreation.vue'
 export default {
     name: 'post-page',
 
     components: {
         comment,
+        commentCreation
     },
 
     computed: {

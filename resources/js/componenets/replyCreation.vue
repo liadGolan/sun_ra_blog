@@ -1,13 +1,11 @@
 <template>
     <div>
         <div v-if="!isLoggedIn">
-            Please Log In to make a post
+            Please Log In to make a reply
         </div>
         <h4>
-            Create New Post
+            Create New Reply
         </h4>
-        <input type="text" placeholder="title" v-model="title">
-        <br>
         <input type="text" placeholder="body" v-model="body">
         <br>
         <button @click="submit" type="button">Submit</button>
@@ -23,7 +21,6 @@ export default {
 
     data: function() {
         return {
-            title:'',
             body:'',
         }
     },
@@ -36,16 +33,15 @@ export default {
 
     methods: {
         ...mapActions([
-            'createPost'
+            'createReply'
         ]),
 
         submit: function(event) {
             let data = {
-                title: this.title,
                 body: this.body
             };
 
-            this.createPost(data);
+            this.createReply(data);
         },
     },
 }
