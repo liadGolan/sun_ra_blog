@@ -1,5 +1,6 @@
 <template>
     <div>
+        <router-link :to="'/login/'">Login / Signup</router-link>
         <h1>
             The Sun Ra Blog: Space is the Place
         </h1>

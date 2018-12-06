@@ -21,5 +21,35 @@ export default {
 
     clearCurrentPost(context,payload) {
         context.commit('CLEAR_CURRENT_POST');
-    }
+    },
+
+    signUp(context, payload) {
+        window.axios.post('api/auth/signup', payload)
+            .then((response) => {
+                console.log(response);
+            })
+            .catch((error) => {
+
+            });
+    },
+
+    login(context, payload) {
+        window.axios.post('api/auth/login', payload)
+            .then((response) => {
+                console.log(response);
+            })
+            .catch((error) => {
+
+            });
+    },
+
+    logout(context, payload) {
+        window.axios.post('api/auth/logout', payload)
+            .then((response) => {
+                console.log(response);
+            })
+            .catch((error) => {
+
+            });
+    },
 };

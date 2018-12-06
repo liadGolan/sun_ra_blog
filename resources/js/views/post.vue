@@ -1,5 +1,6 @@
 <template>
     <div>
+        <router-link :to="'/'">Back to Home</router-link>
         <div v-if="currentPost != []">
             <post-page></post-page>
         </div>
