@@ -43,5 +43,6 @@ export default {
             this.signUp(data);
         }
     }
+    
 }
 </script>

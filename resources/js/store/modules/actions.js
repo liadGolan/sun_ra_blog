@@ -26,7 +26,7 @@ export default {
     signUp(context, payload) {
         window.axios.post('api/auth/signup', payload)
             .then((response) => {
-                console.log(response);
+                context.commit('SIGN_UP', response);
             })
             .catch((error) => {
 
@@ -36,7 +36,7 @@ export default {
     login(context, payload) {
         window.axios.post('api/auth/login', payload)
             .then((response) => {
-                console.log(response);
+                context.commit('LOGIN', response);
             })
             .catch((error) => {
 
@@ -44,9 +44,9 @@ export default {
     },
 
     logout(context, payload) {
-        window.axios.post('api/auth/logout', payload)
+        window.axios.post('api/auth/logout')
             .then((response) => {
-                console.log(response);
+                context.commit('LOGOUT', response);
             })
             .catch((error) => {
 

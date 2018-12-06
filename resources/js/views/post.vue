@@ -1,5 +1,6 @@
 <template>
     <div>
+        <login-header></login-header>
         <router-link :to="'/'">Back to Home</router-link>
         <div v-if="currentPost != []">
             <post-page></post-page>
@@ -9,11 +10,14 @@
 
 <script>
 import postPage from '../componenets/postPage.vue'
+import loginHeader from '../componenets/loginHeader.vue';
+
 import { mapGetters } from 'vuex';
 export default {
     name: 'post',
     components: {
-        postPage
+        postPage,
+        loginHeader
     },
 
     beforeMount() {

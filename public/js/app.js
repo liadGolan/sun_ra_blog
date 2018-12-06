@@ -15991,6 +15991,8 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__componenets_postsContainer_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__componenets_postsContainer_vue__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__componenets_postCreation_vue__ = __webpack_require__(26);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__componenets_postCreation_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1__componenets_postCreation_vue__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__componenets_loginHeader_vue__ = __webpack_require__(84);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__componenets_loginHeader_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2__componenets_loginHeader_vue__);
 //
 //
 //
@@ -16002,6 +16004,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+
 
 
 
@@ -16010,7 +16013,8 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
     components: {
         postsContainer: __WEBPACK_IMPORTED_MODULE_0__componenets_postsContainer_vue___default.a,
-        postCreation: __WEBPACK_IMPORTED_MODULE_1__componenets_postCreation_vue___default.a
+        postCreation: __WEBPACK_IMPORTED_MODULE_1__componenets_postCreation_vue___default.a,
+        loginHeader: __WEBPACK_IMPORTED_MODULE_2__componenets_loginHeader_vue___default.a
     },
 
     beforeCreate: function beforeCreate() {
@@ -16356,9 +16360,7 @@ var render = function() {
   return _c(
     "div",
     [
-      _c("router-link", { attrs: { to: "/login/" } }, [
-        _vm._v("Login / Signup")
-      ]),
+      _c("login-header"),
       _vm._v(" "),
       _c("h1", [_vm._v("\n        The Sun Ra Blog: Space is the Place\n    ")]),
       _vm._v(" "),
@@ -16434,7 +16436,9 @@ module.exports = Component.exports
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__componenets_postPage_vue__ = __webpack_require__(32);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__componenets_postPage_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__componenets_postPage_vue__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_vuex__ = __webpack_require__(2);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__componenets_loginHeader_vue__ = __webpack_require__(84);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__componenets_loginHeader_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1__componenets_loginHeader_vue__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_vuex__ = __webpack_require__(2);
 var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
 
 //
@@ -16446,13 +16450,17 @@ var _extends = Object.assign || function (target) { for (var i = 1; i < argument
 //
 //
 //
+//
+
+
 
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
     name: 'post',
     components: {
-        postPage: __WEBPACK_IMPORTED_MODULE_0__componenets_postPage_vue___default.a
+        postPage: __WEBPACK_IMPORTED_MODULE_0__componenets_postPage_vue___default.a,
+        loginHeader: __WEBPACK_IMPORTED_MODULE_1__componenets_loginHeader_vue___default.a
     },
 
     beforeMount: function beforeMount() {
@@ -16460,7 +16468,7 @@ var _extends = Object.assign || function (target) { for (var i = 1; i < argument
     },
 
 
-    computed: _extends({}, Object(__WEBPACK_IMPORTED_MODULE_1_vuex__["c" /* mapGetters */])(['currentPost']))
+    computed: _extends({}, Object(__WEBPACK_IMPORTED_MODULE_2_vuex__["c" /* mapGetters */])(['currentPost']))
 });
 
 /***/ }),
@@ -16838,6 +16846,8 @@ var render = function() {
   return _c(
     "div",
     [
+      _c("login-header"),
+      _vm._v(" "),
       _c("router-link", { attrs: { to: "/" } }, [_vm._v("Back to Home")]),
       _vm._v(" "),
       _vm.currentPost != [] ? _c("div", [_c("post-page")], 1) : _vm._e()
@@ -16910,7 +16920,7 @@ module.exports = Component.exports
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__componenets_signup_vue__ = __webpack_require__(44);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__componenets_signup_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__componenets_signup_vue__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__componenets_loginComponenet_vue__ = __webpack_require__(84);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__componenets_loginComponenet_vue__ = __webpack_require__(47);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__componenets_loginComponenet_vue___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1__componenets_loginComponenet_vue__);
 //
 //
@@ -17033,6 +17043,7 @@ var _extends = Object.assign || function (target) { for (var i = 1; i < argument
             this.signUp(data);
         }
     })
+
 });
 
 /***/ }),
@@ -17133,9 +17144,176 @@ if (false) {
 }
 
 /***/ }),
-/* 47 */,
-/* 48 */,
-/* 49 */,
+/* 47 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var disposed = false
+var normalizeComponent = __webpack_require__(1)
+/* script */
+var __vue_script__ = __webpack_require__(48)
+/* template */
+var __vue_template__ = __webpack_require__(49)
+/* template functional */
+var __vue_template_functional__ = false
+/* styles */
+var __vue_styles__ = null
+/* scopeId */
+var __vue_scopeId__ = null
+/* moduleIdentifier (server only) */
+var __vue_module_identifier__ = null
+var Component = normalizeComponent(
+  __vue_script__,
+  __vue_template__,
+  __vue_template_functional__,
+  __vue_styles__,
+  __vue_scopeId__,
+  __vue_module_identifier__
+)
+Component.options.__file = "resources/js/componenets/loginComponenet.vue"
+
+/* hot reload */
+if (false) {(function () {
+  var hotAPI = require("vue-hot-reload-api")
+  hotAPI.install(require("vue"), false)
+  if (!hotAPI.compatible) return
+  module.hot.accept()
+  if (!module.hot.data) {
+    hotAPI.createRecord("data-v-575fa442", Component.options)
+  } else {
+    hotAPI.reload("data-v-575fa442", Component.options)
+  }
+  module.hot.dispose(function (data) {
+    disposed = true
+  })
+})()}
+
+module.exports = Component.exports
+
+
+/***/ }),
+/* 48 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_vuex__ = __webpack_require__(2);
+var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
+
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+    name: 'login-component',
+
+    data: function data() {
+        return {
+            email: '',
+            password: ''
+        };
+    },
+
+    methods: _extends({}, Object(__WEBPACK_IMPORTED_MODULE_0_vuex__["b" /* mapActions */])(['login']), {
+
+        submit: function submit(event) {
+            var data = {
+                email: this.email,
+                password: this.password
+            };
+
+            this.login(data);
+        }
+    })
+});
+
+/***/ }),
+/* 49 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c("div", [
+    _c("h3", [_vm._v("\n        Login\n    ")]),
+    _vm._v(" "),
+    _c("br"),
+    _vm._v(" "),
+    _c("input", {
+      directives: [
+        {
+          name: "model",
+          rawName: "v-model",
+          value: _vm.email,
+          expression: "email"
+        }
+      ],
+      attrs: { type: "email", placeholder: "email" },
+      domProps: { value: _vm.email },
+      on: {
+        input: function($event) {
+          if ($event.target.composing) {
+            return
+          }
+          _vm.email = $event.target.value
+        }
+      }
+    }),
+    _vm._v(" "),
+    _c("br"),
+    _vm._v(" "),
+    _c("input", {
+      directives: [
+        {
+          name: "model",
+          rawName: "v-model",
+          value: _vm.password,
+          expression: "password"
+        }
+      ],
+      attrs: { type: "password", placeholder: "password" },
+      domProps: { value: _vm.password },
+      on: {
+        input: function($event) {
+          if ($event.target.composing) {
+            return
+          }
+          _vm.password = $event.target.value
+        }
+      }
+    }),
+    _vm._v(" "),
+    _c("br"),
+    _vm._v(" "),
+    _c("button", { attrs: { type: "button" }, on: { click: _vm.submit } }, [
+      _vm._v("Submit")
+    ])
+  ])
+}
+var staticRenderFns = []
+render._withStripped = true
+module.exports = { render: render, staticRenderFns: staticRenderFns }
+if (false) {
+  module.hot.accept()
+  if (module.hot.data) {
+    require("vue-hot-reload-api")      .rerender("data-v-575fa442", module.exports)
+  }
+}
+
+/***/ }),
 /* 50 */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -17218,7 +17396,8 @@ var store = new __WEBPACK_IMPORTED_MODULE_1_vuex__["a" /* default */].Store({
 "use strict";
 /* harmony default export */ __webpack_exports__["a"] = ({
     posts: [],
-    currentPost: []
+    currentPost: [],
+    isLoggedIn: false
 });
 
 /***/ }),
@@ -17232,6 +17411,9 @@ var store = new __WEBPACK_IMPORTED_MODULE_1_vuex__["a" /* default */].Store({
     },
     currentPost: function currentPost(state) {
         return state.currentPost;
+    },
+    isLoggedIn: function isLoggedIn(state) {
+        return state.isLoggedIn;
     }
 });
 
@@ -17256,17 +17438,17 @@ var store = new __WEBPACK_IMPORTED_MODULE_1_vuex__["a" /* default */].Store({
     },
     signUp: function signUp(context, payload) {
         window.axios.post('api/auth/signup', payload).then(function (response) {
-            console.log(response);
+            context.commit('SIGN_UP', response);
         }).catch(function (error) {});
     },
     login: function login(context, payload) {
         window.axios.post('api/auth/login', payload).then(function (response) {
-            console.log(response);
+            context.commit('LOGIN', response);
         }).catch(function (error) {});
     },
     logout: function logout(context, payload) {
-        window.axios.post('api/auth/logout', payload).then(function (response) {
-            console.log(response);
+        window.axios.post('api/auth/logout').then(function (response) {
+            context.commit('LOGOUT', response);
         }).catch(function (error) {});
     }
 });
@@ -17285,6 +17467,15 @@ var store = new __WEBPACK_IMPORTED_MODULE_1_vuex__["a" /* default */].Store({
     },
     CLEAR_CURRENT_POST: function CLEAR_CURRENT_POST(state, payload) {
         state.currentPost = [];
+    },
+    SIGN_UP: function SIGN_UP(state, payload) {
+        state.isLoggedIn = true;
+    },
+    LOGIN: function LOGIN(state, payload) {
+        state.isLoggedIn = true;
+    },
+    LOGOUT: function LOGOUT(state, payload) {
+        state.isLoggedIn = false;
     }
 });
 
@@ -35391,7 +35582,7 @@ var Component = normalizeComponent(
   __vue_scopeId__,
   __vue_module_identifier__
 )
-Component.options.__file = "resources/js/componenets/loginComponenet.vue"
+Component.options.__file = "resources/js/componenets/loginHeader.vue"
 
 /* hot reload */
 if (false) {(function () {
@@ -35400,9 +35591,9 @@ if (false) {(function () {
   if (!hotAPI.compatible) return
   module.hot.accept()
   if (!module.hot.data) {
-    hotAPI.createRecord("data-v-575fa442", Component.options)
+    hotAPI.createRecord("data-v-08c93c26", Component.options)
   } else {
-    hotAPI.reload("data-v-575fa442", Component.options)
+    hotAPI.reload("data-v-08c93c26", Component.options)
   }
   module.hot.dispose(function (data) {
     disposed = true
@@ -35433,32 +35624,22 @@ var _extends = Object.assign || function (target) { for (var i = 1; i < argument
 //
 //
 //
-//
-//
+
 
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
-    name: 'login-component',
+    name: 'login-header',
 
-    data: function data() {
-        return {
-            email: '',
-            password: ''
-        };
-    },
+    computed: _extends({}, Object(__WEBPACK_IMPORTED_MODULE_0_vuex__["c" /* mapGetters */])(['isLoggedIn'])),
 
-    methods: _extends({}, Object(__WEBPACK_IMPORTED_MODULE_0_vuex__["b" /* mapActions */])(['login']), {
+    methods: _extends({}, Object(__WEBPACK_IMPORTED_MODULE_0_vuex__["b" /* mapActions */])(['logout']), {
 
-        submit: function submit(event) {
-            var data = {
-                email: this.email,
-                password: this.password
-            };
-
-            this.login(data);
+        logMeOut: function logMeOut() {
+            this.logout();
         }
     })
+
 });
 
 /***/ }),
@@ -35470,59 +35651,19 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("div", [
-    _c("h3", [_vm._v("\n        Login\n    ")]),
-    _vm._v(" "),
-    _c("br"),
-    _vm._v(" "),
-    _c("input", {
-      directives: [
-        {
-          name: "model",
-          rawName: "v-model",
-          value: _vm.email,
-          expression: "email"
-        }
-      ],
-      attrs: { type: "email", placeholder: "email" },
-      domProps: { value: _vm.email },
-      on: {
-        input: function($event) {
-          if ($event.target.composing) {
-            return
-          }
-          _vm.email = $event.target.value
-        }
-      }
-    }),
-    _vm._v(" "),
-    _c("br"),
-    _vm._v(" "),
-    _c("input", {
-      directives: [
-        {
-          name: "model",
-          rawName: "v-model",
-          value: _vm.password,
-          expression: "password"
-        }
-      ],
-      attrs: { type: "password", placeholder: "password" },
-      domProps: { value: _vm.password },
-      on: {
-        input: function($event) {
-          if ($event.target.composing) {
-            return
-          }
-          _vm.password = $event.target.value
-        }
-      }
-    }),
-    _vm._v(" "),
-    _c("br"),
-    _vm._v(" "),
-    _c("button", { attrs: { type: "button" }, on: { click: _vm.submit } }, [
-      _vm._v("Submit")
-    ])
+    _vm.isLoggedIn
+      ? _c("div", [
+          _c("a", { on: { click: _vm.logMeOut } }, [_vm._v("Logout")])
+        ])
+      : _c(
+          "div",
+          [
+            _c("router-link", { attrs: { to: "/login/" } }, [
+              _vm._v("Login / Signup")
+            ])
+          ],
+          1
+        )
   ])
 }
 var staticRenderFns = []
@@ -35531,7 +35672,7 @@ module.exports = { render: render, staticRenderFns: staticRenderFns }
 if (false) {
   module.hot.accept()
   if (module.hot.data) {
-    require("vue-hot-reload-api")      .rerender("data-v-575fa442", module.exports)
+    require("vue-hot-reload-api")      .rerender("data-v-08c93c26", module.exports)
   }
 }
 
