@@ -5,9 +5,11 @@
                 {{this.comment.body}}
             </h4>
             <h3>
-                    Replies
-                </h3>
-                <reply-creation></reply-creation>
+                Replies
+            </h3>
+            <div v-if="this.comment.id">
+            <reply-creation :key="this.comment.id" :id="this.comment.id"></reply-creation>
+            </div>
             <div v-if="this.comment.replies != null && this.comment.replies.length > 0">
                 <ul>
                     <reply v-for="reply in this.comment.replies" :key="reply.body" :reply="reply"></reply>

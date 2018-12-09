@@ -56,7 +56,7 @@ export default {
     createPost(context, payload) {
         window.axios.post('api/createPost', payload)
             .then((response) => {
-
+                context.commit('CREATE_POST', payload);
             })
             .catch((error) => {
 
@@ -66,7 +66,7 @@ export default {
     createComment(context, payload) {
         window.axios.post('api/createComment', payload)
             .then((response) => {
-
+                context.commit('CREATE_COMMENT', payload);
             })
             .catch((error) => {
                 
@@ -76,7 +76,7 @@ export default {
     createReply(context, payload) {
         window.axios.post('api/createReply', payload)
             .then((response) => {
-
+                context.commit('CREATE_REPLY', payload);
             })
             .catch((error) => {
                 

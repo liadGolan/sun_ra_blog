@@ -3,6 +3,7 @@
         <div v-if="!isLoggedIn">
             Please Log In to make a post
         </div>
+        <div v-else>
         <h4>
             Create New Post
         </h4>
@@ -11,6 +12,7 @@
         <input type="text" placeholder="body" v-model="body">
         <br>
         <button @click="submit" type="button">Submit</button>
+        </div>
     </div>
 </template>
 
@@ -30,7 +32,8 @@ export default {
 
     computed: {
         ...mapGetters([
-            'isLoggedIn'
+            'isLoggedIn',
+            'getUserId'
         ])
     },
 
@@ -41,6 +44,7 @@ export default {
 
         submit: function(event) {
             let data = {
+                user_id: parseInt(this.$store.getters.getUserId, 10),
                 title: this.title,
                 body: this.body
             };
