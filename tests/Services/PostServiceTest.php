@@ -6,6 +6,7 @@ use Tests\TestCase;
 use App\Services\PostService;
 use App\Contracts\CommentContract;
 use App\Post;
+use App\Comment;
 use Mockery;
 
 use Illuminate\Foundation\Testing\DatabaseMigrations;
@@ -36,10 +37,70 @@ class PostServiceTest extends TestCase
         }
     }
 
+    /** @test */
+    public function getPostWithComments_works_on_different_posts_when_multiple_posts_exist()
+    {
+        for($i = 1; $i < 50; $i += 1) {
+            $this->generatePostWithComments($i);
+            $commentOneData = [
+                'id' => $i * 2 - 1,
+                'post_id' => $i,
+                'user_id' => '1',
+                'body' => 'www',
+                'created_at' => null,
+                'updated_at' => null,
+                'replies' => []
+            ];
+            $commentTwoData = [
+                'id' => $i * 2,
+                'post_id' => $i,
+                'user_id' => '1',
+                'body' => 'www',
+                'created_at' => null,
+                'updated_at' => null,
+                'replies' => []
+            ];
+            $this->utility
+                ->shouldReceive('getRepliesForComment')
+                ->with($i * 2 - 1)
+                ->andReturn($commentOneData);
+            $this->utility
+                ->shouldReceive('getRepliesForComment')
+                ->with($i * 2)
+                ->andReturn($commentTwoData);
+            $data = [
+                'id' => $i,
+                'user_id' => '1',
+                'title' => 'Wow',
+                'body' => 'www',
+                'created_at' => null,
+                'updated_at' => null,
+                'comments' => [$commentOneData, $commentTwoData]
+            ];
+
+            $this->assertEquals($this->service->getPostWithComments($i), $data);
+        }
+    }
+
     private function generatePost($id)
     {
         $post = factory(Post::class)->make([
             'id' => $id
+        ])->save();
+    }
+
+    private function generatePostWithComments($id)
+    {
+        $post = $this->generatePost($id);
+
+        $commentOne = factory(Comment::class)->make([
+            'id' => $id * 2 - 1,
+            'post_id' => $id
+        ])->save();
+
+        $commentTwo = factory(Comment::class)->make([
+            'id' => $id * 2,
+            'post_id' => $id
         ])->save();
     }
 }
