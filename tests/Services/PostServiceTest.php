@@ -82,6 +82,31 @@ class PostServiceTest extends TestCase
         }
     }
 
+    /** @test */
+    public function createPost_creates_a_new_post()
+    {
+        $db_data = [];
+        $this->assertDatabaseMissing('posts', $db_data);
+        for($i = 1; $i < 50; $i++) {
+            $data = [
+                'user_id' => 1,
+                'title' => 'Wow',
+                'body' => 'www'
+            ];
+
+            $this->service->createPost($data);
+
+            $db_data = [
+                'id' => $i,
+                'user_id' => 1,
+                'title' => 'Wow',
+                'body' => 'www'
+            ];
+
+            $this->assertDatabaseHas('posts', $db_data);
+        }
+    }
+
     private function generatePost($id)
     {
         $post = factory(Post::class)->make([
