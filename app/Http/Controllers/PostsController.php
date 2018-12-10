@@ -32,8 +32,6 @@ class PostsController extends Controller
             'body' => $request->body
         ];
 
-        dd($data);
-
         $this->postUtility->createPost($data);
     }
 }
