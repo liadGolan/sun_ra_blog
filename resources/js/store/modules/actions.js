@@ -1,3 +1,5 @@
+import router from '../../router/index.js'
+
 export default {
     getPosts(context) {
         window.axios.get(`api/posts`)
@@ -26,16 +28,18 @@ export default {
     signUp(context, payload) {
         window.axios.post('api/auth/signup', payload)
             .then((response) => {
+                router.push('/')
                 context.commit('SIGN_UP', response);
             })
             .catch((error) => {
-
+                
             });
     },
 
     login(context, payload) {
         window.axios.post('api/auth/login', payload)
             .then((response) => {
+                router.push('/')
                 context.commit('LOGIN', response);
             })
             .catch((error) => {

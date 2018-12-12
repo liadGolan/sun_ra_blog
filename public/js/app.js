@@ -17991,6 +17991,9 @@ var store = new __WEBPACK_IMPORTED_MODULE_1_vuex__["a" /* default */].Store({
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__router_index_js__ = __webpack_require__(15);
+
+
 /* harmony default export */ __webpack_exports__["a"] = ({
     getPosts: function getPosts(context) {
         window.axios.get('api/posts').then(function (response) {
@@ -18007,11 +18010,13 @@ var store = new __WEBPACK_IMPORTED_MODULE_1_vuex__["a" /* default */].Store({
     },
     signUp: function signUp(context, payload) {
         window.axios.post('api/auth/signup', payload).then(function (response) {
+            __WEBPACK_IMPORTED_MODULE_0__router_index_js__["a" /* default */].push('/');
             context.commit('SIGN_UP', response);
         }).catch(function (error) {});
     },
     login: function login(context, payload) {
         window.axios.post('api/auth/login', payload).then(function (response) {
+            __WEBPACK_IMPORTED_MODULE_0__router_index_js__["a" /* default */].push('/');
             context.commit('LOGIN', response);
         }).catch(function (error) {});
     },
