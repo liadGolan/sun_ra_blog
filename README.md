@@ -1,6 +1,17 @@
 # sun_ra_blog
 a blog for sun ra fans
 
+# Access and use
+
+The site is currently being hosted on the following url: http://204.48.21.85:8080/#/
+
+Login credentials are as follows:
+
+email => hello@gmail.com
+password => hello
+
+special note: if after login, creating a post/comment/reply does not work please log out, log back in and it should work. this is due to a weird bug related to the JWT auth library and fixing it was outside the scope of this project
+
 # Project Requirements and Fulfilment
 
 ## MVC
